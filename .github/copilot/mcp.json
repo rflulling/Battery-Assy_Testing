@@ -1,0 +1,9 @@
+{
+  "context": {
+    "allowlist": [
+      "https://api.registry.nm1.platformio.org",
+      "https://api.registry.platformio.org",
+      "https://collector.platformio.org"
+    ]
+  }
+}
