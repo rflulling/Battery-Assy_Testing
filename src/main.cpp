@@ -18,7 +18,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <RTClib.h>
-#include <INA3221.h>
+#include <INA3221_WE.h>
 #include "config.h"
 #include "battery_data.h"
 
@@ -26,8 +26,8 @@
 // Global Objects
 // ============================================================================
 RTC_DS3231 rtc;
-INA3221 inaCharge(INA3221_ADDR_CHARGE);
-INA3221 inaDischarge(INA3221_ADDR_DISCHARGE);
+INA3221_WE inaCharge(INA3221_ADDR_CHARGE);
+INA3221_WE inaDischarge(INA3221_ADDR_DISCHARGE);
 
 // Battery test data
 BatteryTestData testData;
@@ -176,14 +176,12 @@ void initializeAmmeters() {
     Serial.print("  Initializing INA3221 ammeters... ");
     
     // Initialize charge ammeter
-    inaCharge.begin(&Wire);
-    inaCharge.reset();
-    inaCharge.setShuntRes(SHUNT_RESISTANCE_CHARGE, SHUNT_RESISTANCE_CHARGE, SHUNT_RESISTANCE_CHARGE);
+    inaCharge.init();
+    inaCharge.setShuntSizeInMOhms(10);  // 10 mOhm = 0.01 Ohm
     
     // Initialize discharge ammeter
-    inaDischarge.begin(&Wire);
-    inaDischarge.reset();
-    inaDischarge.setShuntRes(SHUNT_RESISTANCE_DISCHARGE, SHUNT_RESISTANCE_DISCHARGE, SHUNT_RESISTANCE_DISCHARGE);
+    inaDischarge.init();
+    inaDischarge.setShuntSizeInMOhms(10);  // 10 mOhm = 0.01 Ohm
     
     Serial.println("OK");
     Serial.println("    Charge shunt: Channel 1");

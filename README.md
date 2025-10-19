@@ -30,17 +30,36 @@ This project provides firmware and documentation for building a battery assembly
   - Good for logging and analysis
   - May require additional setup and drivers
 
+## Documentation
+
+- **[README.md](README.md)** - Project overview and build instructions (this file)
+- **[USER_GUIDE.md](USER_GUIDE.md)** - Complete operating instructions and commands
+- **[WIRING_GUIDE.md](WIRING_GUIDE.md)** - Detailed pin connections and hardware wiring
+- **[ASSEMBLY_NOTES.md](ASSEMBLY_NOTES.md)** - Mechanical assembly and safety guidelines
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and release notes
+
+## Quick Start
+
+1. **Hardware Setup**: Follow [WIRING_GUIDE.md](WIRING_GUIDE.md) to connect all components
+2. **Build & Upload**: Use PlatformIO to compile and upload firmware
+3. **Serial Monitor**: Connect via PuTTY at 115200 baud
+4. **Run Test**: Use commands from [USER_GUIDE.md](USER_GUIDE.md) to operate system
+
 ## Project Structure
 
 ```
 Battery-Assy_Testing/
 ├── platformio.ini          # PlatformIO configuration
-├── src/                    # Source code
-│   └── main.cpp           # Main application entry point
-├── include/               # Header files
+├── src/
+│   └── main.cpp           # Main application with test logic
+├── include/
+│   ├── config.h           # Pin definitions and configuration
+│   └── battery_data.h     # Data structures for testing
 ├── lib/                   # Custom libraries
 ├── test/                  # Unit tests
 ├── README.md              # This file
+├── USER_GUIDE.md          # Operating instructions
+├── WIRING_GUIDE.md        # Hardware wiring guide
 ├── ASSEMBLY_NOTES.md      # Mechanical assembly instructions
 ├── CHANGELOG.md           # Version history
 └── .gitignore            # Git ignore rules
