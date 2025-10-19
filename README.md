@@ -30,17 +30,36 @@ This project provides firmware and documentation for building a battery assembly
   - Good for logging and analysis
   - May require additional setup and drivers
 
+## Documentation
+
+- **[README.md](README.md)** - Project overview and build instructions (this file)
+- **[USER_GUIDE.md](USER_GUIDE.md)** - Complete operating instructions and commands
+- **[WIRING_GUIDE.md](WIRING_GUIDE.md)** - Detailed pin connections and hardware wiring
+- **[ASSEMBLY_NOTES.md](ASSEMBLY_NOTES.md)** - Mechanical assembly and safety guidelines
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and release notes
+
+## Quick Start
+
+1. **Hardware Setup**: Follow [WIRING_GUIDE.md](WIRING_GUIDE.md) to connect all components
+2. **Build & Upload**: Use PlatformIO to compile and upload firmware
+3. **Serial Monitor**: Connect via PuTTY at 115200 baud
+4. **Run Test**: Use commands from [USER_GUIDE.md](USER_GUIDE.md) to operate system
+
 ## Project Structure
 
 ```
 Battery-Assy_Testing/
 ├── platformio.ini          # PlatformIO configuration
-├── src/                    # Source code
-│   └── main.cpp           # Main application entry point
-├── include/               # Header files
+├── src/
+│   └── main.cpp           # Main application with test logic
+├── include/
+│   ├── config.h           # Pin definitions and configuration
+│   └── battery_data.h     # Data structures for testing
 ├── lib/                   # Custom libraries
 ├── test/                  # Unit tests
 ├── README.md              # This file
+├── USER_GUIDE.md          # Operating instructions
+├── WIRING_GUIDE.md        # Hardware wiring guide
 ├── ASSEMBLY_NOTES.md      # Mechanical assembly instructions
 ├── CHANGELOG.md           # Version history
 └── .gitignore            # Git ignore rules
@@ -182,21 +201,33 @@ See ASSEMBLY_NOTES.md for complete safety guidelines.
 ## Features
 
 ### Current Features (v1.0.0)
-- Multi-platform support (ESP32, STM32H7, Milk-V Duo 64)
-- Basic firmware skeleton with initialization
-- Serial communication for monitoring
-- System information reporting
+- ESP32-POE-ISO (Olimex) primary platform support
+- Dual INA3221 current monitoring (charge and discharge shunts)
+- DS3231 RTC for accurate timekeeping
+- Relay control system for automated charge/discharge cycling
+- Real-time battery voltage and current monitoring
+- Average and peak current tracking
+- Accumulated Ah and Wh measurements
+- CSV data logging with timestamps
+- Serial terminal interface (PuTTY compatible)
+- Support for multiple battery types:
+  - Lead Acid motorcycle batteries (~13Ah)
+  - LiFePO4 batteries (~90Ah)
+  - NiCad 4xAA packs
+  - Li-ion cells
+- Automated test cycle state machine
+- Test summary reports
+- Safety cutoff voltage monitoring
 
 ### Planned Features
-- Battery voltage measurement and monitoring
-- Current sensing and logging
-- Temperature monitoring with safety limits
-- Automatic safety shutdown logic
-- Display support (LCD/OLED)
-- Web interface for remote monitoring
-- Data logging (SD card or flash)
-- Multiple independent battery channels
-- Charge/discharge cycling capabilities
+- Temperature monitoring with DS18B20 sensors
+- SD card data storage
+- 4.5" SPI LCD display support
+- Physical button/dial input interface
+- Web interface for remote monitoring (via Ethernet)
+- Multiple independent battery channel support
+- Enhanced fault detection and pairing algorithms
+- Thermal receipt printing capability
 
 ## Version History
 
