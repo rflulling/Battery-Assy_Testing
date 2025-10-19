@@ -182,21 +182,33 @@ See ASSEMBLY_NOTES.md for complete safety guidelines.
 ## Features
 
 ### Current Features (v1.0.0)
-- Multi-platform support (ESP32, STM32H7, Milk-V Duo 64)
-- Basic firmware skeleton with initialization
-- Serial communication for monitoring
-- System information reporting
+- ESP32-POE-ISO (Olimex) primary platform support
+- Dual INA3221 current monitoring (charge and discharge shunts)
+- DS3231 RTC for accurate timekeeping
+- Relay control system for automated charge/discharge cycling
+- Real-time battery voltage and current monitoring
+- Average and peak current tracking
+- Accumulated Ah and Wh measurements
+- CSV data logging with timestamps
+- Serial terminal interface (PuTTY compatible)
+- Support for multiple battery types:
+  - Lead Acid motorcycle batteries (~13Ah)
+  - LiFePO4 batteries (~90Ah)
+  - NiCad 4xAA packs
+  - Li-ion cells
+- Automated test cycle state machine
+- Test summary reports
+- Safety cutoff voltage monitoring
 
 ### Planned Features
-- Battery voltage measurement and monitoring
-- Current sensing and logging
-- Temperature monitoring with safety limits
-- Automatic safety shutdown logic
-- Display support (LCD/OLED)
-- Web interface for remote monitoring
-- Data logging (SD card or flash)
-- Multiple independent battery channels
-- Charge/discharge cycling capabilities
+- Temperature monitoring with DS18B20 sensors
+- SD card data storage
+- 4.5" SPI LCD display support
+- Physical button/dial input interface
+- Web interface for remote monitoring (via Ethernet)
+- Multiple independent battery channel support
+- Enhanced fault detection and pairing algorithms
+- Thermal receipt printing capability
 
 ## Version History
 
