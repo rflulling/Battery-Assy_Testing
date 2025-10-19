@@ -177,11 +177,11 @@ void initializeAmmeters() {
     
     // Initialize charge ammeter
     inaCharge.init();
-    inaCharge.setShuntSizeInMOhms(10);  // 10 mOhm = 0.01 Ohm
+    inaCharge.setShuntSizeInMOhms(SHUNT_RESISTANCE_CHARGE * 1000);  // Convert Ohms to mOhms
     
     // Initialize discharge ammeter
     inaDischarge.init();
-    inaDischarge.setShuntSizeInMOhms(10);  // 10 mOhm = 0.01 Ohm
+    inaDischarge.setShuntSizeInMOhms(SHUNT_RESISTANCE_DISCHARGE * 1000);  // Convert Ohms to mOhms
     
     Serial.println("OK");
     Serial.println("    Charge shunt: Channel 1");
