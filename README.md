@@ -2,6 +2,10 @@
 
 A comprehensive battery testing apparatus and software system designed to test multiple large batteries with safety monitoring and data collection capabilities.
 
+# BETA
+
+Project remains in BETA state. Nothing here should be contructed without understajding it probably wont work, or could be dangerous. This is not a finished project and there is much work to be done before its ready. However the public is welcome to participate in development with the understanding this is project under development. 
+
 ## Overview
 
 This project provides firmware and documentation for building a battery assembly testing system capable of:
